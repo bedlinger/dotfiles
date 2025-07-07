@@ -1,0 +1,167 @@
+# after-login-command = []
+
+after-startup-command = ['exec-and-forget borders', 'exec-and-forget sketchybar']
+
+exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 0
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused window changes
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+on-focus-changed = ['move-mouse window-lazy-center']
+
+# Turn off macOS "Hide application" (cmd-h) feature
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = true
+
+# Possible values: (qwerty|dvorak|colemak)
+# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+[key-mapping]
+    preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+[gaps]
+    inner.horizontal = 9
+    inner.vertical   = 9
+    outer.left       = 5
+    outer.bottom     = 5
+    outer.top        = [{ monitor."L27h-4A" = 44 }, 12]
+    outer.right      = 5
+
+# Certain workspaces are assigned to particualr monitors
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'main'
+    6 = 'main'
+    7 = 'main'
+    8 = 'secondary'
+    9 = 'secondary'
+
+# 'main' binding mode declaration
+# 'main' binding mode must be always presented
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.main.binding]
+    # All possible keys:
+    # - Letters.        a, b, c, ..., z
+    # - Numbers.        0, 1, 2, ..., 9
+    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+    # - F-keys.         f1, f2, ..., f20
+    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
+    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
+    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
+    #                   sectionSign (ISO keyboards only, european keyboards only)
+    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+    #                   keypadMinus, keypadMultiply, keypadPlus
+    # - Arrows.         left, down, up, right
+    # All possible modifiers: cmd, alt, ctrl, shift
+    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    cmd-shift-comma = 'layout tiles horizontal vertical'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    cmd-h = 'focus left'
+    cmd-j = 'focus down'
+    cmd-k = 'focus up'
+    cmd-l = 'focus right'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    cmd-shift-h = 'move left'
+    cmd-shift-j = 'move down'
+    cmd-shift-k = 'move up'
+    cmd-shift-l = 'move right'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
+    cmd-down  = 'resize smart -50'
+    cmd-up = 'resize smart +50'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+    cmd-1 = 'workspace 1'
+    cmd-2 = 'workspace 2'
+    cmd-3 = 'workspace 3'
+    cmd-4 = 'workspace 4'
+    cmd-5 = 'workspace 5'
+    cmd-6 = 'workspace 6'
+    cmd-7 = 'workspace 7'
+    cmd-8 = 'workspace 8'
+    cmd-9 = 'workspace 9'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+    cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+    cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+    cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+    cmd-shift-e = 'workspace-back-and-forth'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    cmd-shift-s = ['mode service', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=service"']
+    cmd-shift-space = ['mode application', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=application"'] 
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+    esc = ['reload-config', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    r   = ['flatten-workspace-tree', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    s   = ['exec-and-forget sketchybar --reload', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    f   = ['layout floating tiling', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+
+# 'application' binding mode declration
+[mode.application.binding]
+    esc   = ['mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    enter = ['exec-and-forget open /Applications/Ghostty.app', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    y     = ['exec-and-forget open /Applications/Zen.app', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    o     = ['exec-and-forget open /Applications/Obsidian.app', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+    s     = ['exec-and-forget open /Applications/Spotify.app', 'mode main', 'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.systempreferences' # osascript -e 'id of app "Application Name"'
+    run = 'layout floating' # layout tiling
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.backup.launcher'
+    run = 'layout floating' 
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.PhotoBooth'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.calculator'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Preview'
+    run = 'layout floating'
