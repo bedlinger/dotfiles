@@ -1,6 +1,6 @@
 # Comments and blank lines are allowed.
 
-*.png
+\.png
 
 RCS
 .+,v
