@@ -1,34 +1,134 @@
 # My macOS dotfiles
 
-This directory contains the dotfiles for my system
+A comprehensive collection of macOS dotfiles and configurations for a modern development environment. This repository contains carefully curated configuration files for various tools including shell environments, window management, system monitoring, and more.
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Requirements
 
-Ensure you have the following installed on your system
+Ensure you have the following installed on your system before proceeding with installation:
 
 ### Git
 
-```
+```bash
 brew install git
 ```
 
 ### Stow
 
-```
+GNU Stow is used to manage symlinks for the dotfiles:
+
+```bash
 brew install stow
 ```
 
 ## Installation
 
-First, check out the dotfiles repo in your $HOME directory using git
+1. First, check out the dotfiles repository in your `$HOME` directory using git:
 
-```
-$ git clone git@github.com/bedlinger/dotfiles.git
-$ cd dotfiles
+```bash
+git clone git@github.com/bedlinger/dotfiles.git
+cd dotfiles
 ```
 
-then use GNU stow to create symlinks
+2. Use GNU Stow to create symlinks for all configurations:
 
+```bash
+stow .
 ```
-$ stow .
+
+**Note:** This will create symlinks in your home directory. Make sure to backup any existing configuration files before running this command.
+
+## Usage
+
+### Updating Dotfiles
+
+To update your dotfiles with the latest changes:
+
+```bash
+cd ~/dotfiles
+git pull origin main
+stow .
 ```
+
+### Managing Individual Configurations
+
+You can also stow individual configuration directories if you only want specific dotfiles:
+
+```bash
+# Example: Only install zsh configuration
+stow .zshrc
+
+# Example: Only install specific config directories
+stow .config/sketchybar
+```
+
+## Features
+
+This dotfiles repository includes configurations for:
+
+- **Shell Environment**
+  - `.zshrc` - Zsh configuration with Oh My Zsh, themes, and helpful aliases
+  - Eza integration for enhanced `ls` functionality
+
+- **Window Management**
+  - **Aerospace** - Tiling window manager configuration
+  - **Borders** - Window border enhancement
+
+- **System Monitoring**
+  - **SketchyBar** - Highly customizable macOS status bar with plugins for:
+    - System information (CPU, memory, network, battery)
+    - Spotify integration
+    - Workspace indicators
+    - Volume and clock widgets
+  - **Btop** - Modern system resource monitor
+
+- **Terminal**
+  - **Ghostty** - Terminal emulator configuration
+
+All configurations follow a consistent theme and are designed to work harmoniously together.
+
+## Customization
+
+### Modifying Configurations
+
+1. **SketchyBar**: Edit `.config/sketchybar/sketchybarrc` to modify the status bar layout and plugins
+2. **Zsh**: Customize `.zshrc` to add personal aliases, functions, or modify the theme
+3. **Colors**: SketchyBar uses a Gruvbox color scheme defined in `.config/sketchybar/colors.sh`
+
+### Adding New Configurations
+
+1. Add your configuration files to the repository
+2. Update `.stow-local-ignore` if you need to exclude certain files
+3. Test with `stow .` to ensure proper symlinking
+
+### Theme Consistency
+
+Most configurations use the Gruvbox color scheme for visual consistency across applications.
+
+## Contributing
+
+Contributions are welcome! If you have improvements or additional configurations:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-config`)
+3. Commit your changes (`git commit -am 'Add amazing configuration'`)
+4. Push to the branch (`git push origin feature/amazing-config`)
+5. Open a Pull Request
+
+Please ensure that:
+- Configurations follow the existing structure
+- New features are documented in the README
+- Color schemes maintain consistency with the Gruvbox theme where applicable
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE). Feel free to use, modify, and distribute these configurations as needed.
