@@ -1,0 +1,217 @@
+#!/usr/bin/env sh
+
+# -------------------------------------
+# Globals and Color Scheme
+# -------------------------------------
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+DEFAULT_FONT="ZedMono Nerd Font"
+source "$CONFIG_DIR/colors.sh"
+DISPLAY_COUNT=$(sketchybar --query displays | jq 'length')
+
+# -------------------------------------
+# Bar Configuration
+# -------------------------------------
+
+sketchybar --bar                                  \
+           position=top                           \
+           height=32                              \
+           color=$CLEAR                           \
+	   y_offset=2				  \
+           padding_left=10                        \
+           padding_right=10
+
+# -------------------------------------
+# Default Item Configuration
+# -------------------------------------
+
+sketchybar --default                                \
+						    \
+           padding_left=5                           \
+           padding_right=5                          \
+						    \
+           icon.font="$DEFAULT_FONT:Bold:14.0"      \
+           icon.color=$ICON_COLOR                   \
+	   icon.padding_left=10                     \
+	   icon.padding_right=3                     \
+						    \
+           label.padding_left=5                     \
+           label.padding_right=12                   \
+           label.font="$DEFAULT_FONT:Regular:16.0"  \
+           label.color=$LABEL_COLOR                 \
+						    \
+	   background.height=28 	   	    \
+	   background.corner_radius=5 	   	    \
+           background.padding_left=5                \
+           background.padding_right=5               \
+	   popup.background.color=$BG0		    \
+ 	   popup.background.corner_radius=5	     \
+	   popup.background.border_color=$BRIGHT_BLUE\
+	   popup.background.border_width=2
+
+# -------------------------------------
+# Left Items
+# -------------------------------------
+
+# Popup Menu
+sketchybar --add item apple.logo left                                           \
+           --set apple.logo                                                     \
+                 icon=􀣺                                                        \
+		 icon.font="$DEFAULT_FONT:Bold:18.0"     			\
+                 label.drawing=off                                              \
+                 click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+										\
+										\
+	   --add item apple.preferences popup.apple.logo                        \
+           --set apple.preferences                                              \
+                 icon=􀺽                                                        \
+                 label="Preferences"                                            \
+                 click_script="open -a 'System Settings'; \
+                              sketchybar -m --set apple.logo popup.drawing=off" \
+										\
+           --add item apple.activity popup.apple.logo                           \
+           --set apple.activity                                                 \
+                 icon=􀒓                                                        \
+                 label="Activity"                                               \
+                 click_script="open -a 'Activity Monitor'; \
+                              sketchybar -m --set apple.logo popup.drawing=off"
+
+# Current Mode
+sketchybar --add event aerospace_mode_change
+sketchybar --add item aerospace_mode left               \
+           --set aerospace_mode  			\
+                 script="$PLUGIN_DIR/aerospace_mode.sh" \
+           	 label.font="$DEFAULT_FONT:Bold:18.0"   \
+                 icon.drawing=off 	  		\
+           --subscribe aerospace_mode aerospace_mode_change
+
+# Workspaces
+sketchybar --add event aerospace_workspace_change
+if [ "$DISPLAY_COUNT" -gt 1 ]; then
+  # TWO MONITOR LOGIC
+  for sid in $(aerospace list-workspaces --monitor 1); do
+    sketchybar --add item space.$sid left 			      \
+               --set space.$sid 				      \
+                     script="$PLUGIN_DIR/aerospace_workspace.sh $sid" \
+                     click_script="aerospace workspace $sid"          \
+                     display=2 					      \
+                     background.height=28 			      \
+               --subscribe space.$sid aerospace_workspace_change
+  done
+  sketchybar --add bracket spaces.secondary '/^space\.[8-9]$/' \
+             --set spaces.secondary			       \
+		   background.color=$BG0                       \
+                   background.height=18
+
+  for sid in $(aerospace list-workspaces --monitor 2); do
+    sketchybar --add item space.$sid left 			      \
+               --set space.$sid 				      \
+                     script="$PLUGIN_DIR/aerospace_workspace.sh $sid" \
+                     click_script="aerospace workspace $sid"  	      \
+                     display=1 					      \
+                     background.height=28 			      \
+               --subscribe space.$sid aerospace_workspace_change
+  done
+  sketchybar --add bracket spaces.main '/^space\.[1-7]$/' \
+             --set spaces.main                            \
+                   background.color=$BG0               \
+                   background.height=18
+else
+  # SINGLE MONITOR LOGIC
+  for sid in $(aerospace list-workspaces --all); do
+    sketchybar --add item space.$sid left 		  	      \
+               --set space.$sid 				      \
+                     script="$PLUGIN_DIR/aerospace_workspace.sh $sid" \
+                     click_script="aerospace workspace $sid"          \
+                     display=1 					      \
+                     background.height=28     			      \
+               --subscribe space.$sid aerospace_workspace_change
+  done
+  sketchybar --add bracket spaces '/space\..*/'  \
+             --set spaces			 \
+		   background.color=$BG0         \
+                   background.height=18
+fi
+
+# Focused Application
+sketchybar --add item front_app left           		      \
+           --set front_app                                    \
+                 script="$PLUGIN_DIR/front_app.sh"            \
+		 display=active				      \
+                 icon.font="sketchybar-app-font:Regular:16.0" \
+		 background.color=$BRIGHT_BLUE		      \
+           --subscribe front_app front_app_switched
+
+# -------------------------------------
+# Center Items
+# -------------------------------------
+
+# Spotify
+if [ "$DISPLAY_COUNT" -gt 1 ]; then
+	SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+ 	sketchybar --add event spotify_change $SPOTIFY_EVENT      \
+    		   --add item spotify center 			  \
+		   --set spotify         			  \
+                         script="$PLUGIN_DIR/spotify.sh"          \
+			 display=1				  \
+			 icon.padding_right=5                     \
+                 	 background.color=$BG0                    \
+                 --subscribe spotify spotify_change mouse.clicked	
+fi
+
+# -------------------------------------
+# Right Items
+# -------------------------------------
+
+# Clock
+sketchybar --add item clock right 		       \
+           --set clock 				       \
+                 script="$PLUGIN_DIR/clock.sh" 	       \
+                 icon.padding_right=5 	               \
+                 background.color=$MUTED_BLUE 	       \
+                 update_freq=10
+
+# Volume
+sketchybar --add item volume right 		       	       \
+           --set volume 			       	       \
+                 script="$PLUGIN_DIR/volume.sh"        	       \
+		 click_script="$PLUGIN_DIR/volume_click.sh"    \
+                 icon.padding_right=5 	               	       \
+                 background.color=$MUTED_PURPLE        	       \
+		 popup.background.border_color=$MUTED_PURPLE   \
+           --subscribe volume volume_change
+
+# Battery
+sketchybar --add item battery right 		       \
+           --set battery 			       \
+                 script="$PLUGIN_DIR/battery.sh"       \
+                 icon.padding_right=5 	               \
+                 background.color=$MUTED_YELLOW	       \
+                 update_freq=60                        \
+	  --subscribe battery power_source_change
+
+# Network
+sketchybar --add event network_update					   \
+           --add item network right                                        \
+           --set network                                                   \
+                 script="$PLUGIN_DIR/network.sh"                           \
+                 click_script="$PLUGIN_DIR/network_click.sh"               \
+                 icon.padding_right=5                                      \
+                 background.color=$MUTED_AQUA                              \
+           --subscribe network wifi_change network_update
+
+# -------------------------------------
+# Force all scripts to run the first time (never do this in a script) 
+# -------------------------------------
+sketchybar --update          \
+           --hotload false
+
+# -------------------------------------
+# Trigger a refresh to set initial states
+# -------------------------------------
+if [ $(aerospace list-workspaces --focused) -gt 1 ]; then
+	aerospace workspace 1 --fail-if-noop
+else
+	sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=1
+fi
+aerospace trigger-binding --mode service esc 
