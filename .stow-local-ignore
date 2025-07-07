@@ -1,6 +1,7 @@
 # Comments and blank lines are allowed.
 
-\.png
+\.DS_Store
+.*\.png
 
 RCS
 .+,v
