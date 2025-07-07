@@ -2,6 +2,10 @@
 
 My macOS dotfiles and configurations for a modern development environment. This repository contains configuration files for various tools including shell environments, window management, system monitoring, and more.
 
+![main screen wallpaper](./main_screen_wp.png)
+![main screen](./main_screen.png)
+![secondary screen](./secondary_screen.png)
+
 ## Requirements
 
 Ensure you have the following installed on your system before proceeding with installation:
