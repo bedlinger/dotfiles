@@ -1,16 +1,6 @@
 # My macOS dotfiles
 
-A comprehensive collection of macOS dotfiles and configurations for a modern development environment. This repository contains carefully curated configuration files for various tools including shell environments, window management, system monitoring, and more.
-
-## Table of Contents
-
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Customization](#customization)
-- [Contributing](#contributing)
-- [License](#license)
+My macOS dotfiles and configurations for a modern development environment. This repository contains configuration files for various tools including shell environments, window management, system monitoring, and more.
 
 ## Requirements
 
@@ -94,8 +84,6 @@ This dotfiles repository includes configurations for:
 - **Terminal**
   - **Ghostty** - Terminal emulator configuration
 
-All configurations follow a consistent theme and are designed to work harmoniously together.
-
 ## Customization
 
 ### Modifying Configurations
@@ -128,7 +116,3 @@ Please ensure that:
 - Configurations follow the existing structure
 - New features are documented in the README
 - Color schemes maintain consistency with the Gruvbox theme where applicable
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE). Feel free to use, modify, and distribute these configurations as needed.
