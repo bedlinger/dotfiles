@@ -11,7 +11,7 @@ return {
 			ensure_installed = {
 				"lua",
 				"vim",
-				"javasctipt",
+				"javascript",
 				"typescript",
 				"html",
 				"css",
