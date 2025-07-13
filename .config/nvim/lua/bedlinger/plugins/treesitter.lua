@@ -1,25 +1,55 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  config = function()
-    local treesitter = require("nvim-treesitter.configs")
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPre", "BufNewFile" },
+	build = ":TSUpdate",
+	config = function()
+		local treesitter = require("nvim-treesitter.configs")
 
-    treesitter.setup({
-      highlight = { enable = true, },
-      indent = { enable = true },
-      ensure_installed = {
-        "lua",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-    })
-  end,
+		treesitter.setup({
+			highlight = { enable = true },
+			indent = { enable = true },
+			ensure_installed = {
+				"lua",
+				"vim",
+				"javasctipt",
+				"typescript",
+				"html",
+				"css",
+				"json",
+				"toml",
+				"yaml",
+				"csv",
+				"xml",
+				"vue",
+				"astro",
+				"editorconfig",
+				"markdown",
+				"nginx",
+				"dockerfile",
+				"sql",
+				"c_sharp",
+				"rust",
+				"python",
+				"go",
+				"gomod",
+				"gosum",
+				"java",
+				"javadoc",
+				"bash",
+				"git_config",
+				"git_rebase",
+				"gitcommit",
+				"gitignore",
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
+				},
+			},
+		})
+	end,
 }
