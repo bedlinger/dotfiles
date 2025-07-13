@@ -22,6 +22,31 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"lua_ls",
+				"typescript-language-server",
+				"html-lsp",
+				"css-lsp",
+				"css-variables-language-server",
+				"cssmodules-language-server",
+				"tailwindcss-language-server",
+				"json-lsp",
+				"taplo", -- toml lsp
+				"yaml-language-server",
+				"gh-actions-language-server",
+				"lemminx", -- xml lsp
+				"vue-language-server",
+				"astro-language-server",
+				"marksman", -- md lsp
+				"nginx-language-server",
+				"dockerfile-language-server",
+				"docker-compose-language-service",
+				"sqls",
+				"omnisharp",
+				"rust-analyzer",
+				"pyright",
+				"gopls",
+				"java-language-server",
+				"kotlin-language-server",
+				"bash-language-server",
 			},
 		})
 
