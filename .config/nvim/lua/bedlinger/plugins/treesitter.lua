@@ -35,6 +35,7 @@ return {
 				"gosum",
 				"java",
 				"javadoc",
+				"kotlin",
 				"bash",
 				"git_config",
 				"git_rebase",
