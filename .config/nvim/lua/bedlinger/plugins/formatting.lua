@@ -13,7 +13,7 @@ return {
 				css = { "prettierd" },
 				json = { "prettierd" },
 				toml = { "taplo" },
-				yaml = { "prettierd" },
+				yaml = { "prettierd", "gh-actions-language-server" },
 				xml = { "xmlformatter" },
 				vue = { "prettierd" },
 				markdown = { "prettierd" },

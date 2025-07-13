@@ -53,7 +53,6 @@ return {
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"stylua",
-				"luacheck",
 				"prettierd",
 				"xmlformatter",
 				"nginx-config-formatter",
@@ -70,6 +69,23 @@ return {
 				"google-java-format",
 				"ktfmt",
 				"beautysh",
+				"luacheck",
+				"eslint_d",
+				"htmlhint",
+				"stylelint",
+				"jsonlint",
+				"tombi", -- toml linter
+				"yamllint",
+				"actionlint",
+				"markdownlint",
+				"sqruff",
+				"sonarlint-language-server",
+				"bacon",
+				"golangci-lint",
+				"checkstyle",
+				"ktlint",
+				"shellcheck",
+				"dotenv-linter",
 			},
 		})
 	end,

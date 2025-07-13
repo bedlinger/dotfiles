@@ -6,6 +6,23 @@ return {
 
 		lint.linters_by_ft = {
 			lua = { "luacheck" },
+			javascript = { "eslint_d" },
+			typescript = { "eslint_d" },
+			html = { "htmlhint" },
+			css = { "stylelint" },
+			json = { "jsonlint" },
+			toml = { "tombi" },
+			yaml = { "yamllint", "actionlint" },
+			markdown = { "markdownlint" },
+			sql = { "sqruff" },
+			c_sharp = { "sonarlint-language-server" },
+			rust = { "bacon" },
+			python = { "ruff" },
+			go = { "golangci-lint" },
+			java = { "checkstyle" },
+			kotlin = { "ktlint" },
+			bash = { "shellcheck" },
+			dotenv = { "dotenv-linter" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
