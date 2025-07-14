@@ -1,122 +1,84 @@
-# My macOS dotfiles
+# macOS dotfiles
 
-My macOS dotfiles and configurations for a modern development environment. This repository contains configuration files for various tools including shell environments, window management, system monitoring, and more.
+A curated collection of dotfiles and configurations for a streamlined, modern macOS development environment.
 
 ![main screen wallpaper](./main_screen_wp.png)
 ![main screen](./main_screen.png)
 ![secondary screen](./secondary_screen.png)
 
+## Features
+
+- **Shell Environment**
+  - `.zshrc` with Oh My Zsh, plugins, themes, and custom aliases
+  - Eza for improved file listing
+- **Window Management**
+  - Aerospace configuration for tiling
+  - Borders for window border enhancement
+- **System Monitoring**
+  - SketchyBar for a customizable status bar (CPU, memory, network, battery, workspaces, Spotify, and more)
+  - Btop for terminal-based system monitoring
+- **Terminal**
+  - Ghostty configuration for a fast terminal
+- **Neovim**
+  - Personal Neovim configuration for a modern, efficient editing experience
+- **Color Consistency**
+  - Gruvbox-inspired color scheme across apps
+
 ## Requirements
 
-Ensure you have the following installed on your system before proceeding with installation:
-
-### Git
-
-```bash
-brew install git
-```
-
-### Stow
-
-GNU Stow is used to manage symlinks for the dotfiles:
-
-```bash
-brew install stow
-```
+- [Homebrew](https://brew.sh/) (for installing dependencies)
+- [Git](https://git-scm.com/)  
+  `brew install git`
+- [GNU Stow](https://www.gnu.org/software/stow/)  
+  `brew install stow`
+- (Optional) [Oh My Zsh](https://ohmyz.sh/) for shell configuration
 
 ## Installation
 
-1. First, check out the dotfiles repository in your `$HOME` directory using git:
+1. **Clone the repository into your home directory**
+   ```bash
+   git clone git@github.com:bedlinger/dotfiles.git ~/dotfiles
+   cd ~/dotfiles
+   ```
 
-```bash
-git clone git@github.com/bedlinger/dotfiles.git
-cd dotfiles
-```
+2. **Symlink all configurations using GNU Stow**
+   ```bash
+   stow .
+   ```
+   > _Tip: Back up any existing config files before running Stow._
 
-2. Use GNU Stow to create symlinks for all configurations:
+3. **(Optional) Stow only selected configs**
+   ```bash
+   stow .zshrc
+   stow .config/nvim
+   stow .config/sketchybar
+   ```
 
-```bash
-stow .
-```
+## Usage & Updates
 
-**Note:** This will create symlinks in your home directory. Make sure to backup any existing configuration files before running this command.
+- **Update dotfiles:**  
+  ```bash
+  cd ~/dotfiles
+  git pull origin main
+  stow .
+  ```
+- **Edit and customize configs:**  
+  - Neovim: `.config/nvim`
+  - Aerospace : `.config/aerospace.toml`
+  - SketchyBar: `.config/sketchybar`
+  - Zsh: `.zshrc`
+  - Ghostty: `.config/ghostty/config`
+- **Color scheme:**  
+  Most configs use Gruvbox colors
+  
+## Adding or Modifying Configurations
 
-## Usage
+1. Place your new config directory or file inside the repo (e.g., `.config/nvim` for Neovim).
+2. Use `stow <target>` to symlink it.
+3. If you need to exclude files, add patterns to `.stow-local-ignore`.
+4. Test after each change.
 
-### Updating Dotfiles
+## Contribution
 
-To update your dotfiles with the latest changes:
-
-```bash
-cd ~/dotfiles
-git pull origin main
-stow .
-```
-
-### Managing Individual Configurations
-
-You can also stow individual configuration directories if you only want specific dotfiles:
-
-```bash
-# Example: Only install zsh configuration
-stow .zshrc
-
-# Example: Only install specific config directories
-stow .config/sketchybar
-```
-
-## Features
-
-This dotfiles repository includes configurations for:
-
-- **Shell Environment**
-  - `.zshrc` - Zsh configuration with Oh My Zsh, themes, and helpful aliases
-  - Eza integration for enhanced `ls` functionality
-
-- **Window Management**
-  - **Aerospace** - Tiling window manager configuration
-  - **Borders** - Window border enhancement
-
-- **System Monitoring**
-  - **SketchyBar** - Highly customizable macOS status bar with plugins for:
-    - System information (CPU, memory, network, battery)
-    - Spotify integration
-    - Workspace indicators
-    - Volume and clock widgets
-  - **Btop** - Modern system resource monitor
-
-- **Terminal**
-  - **Ghostty** - Terminal emulator configuration
-
-## Customization
-
-### Modifying Configurations
-
-1. **SketchyBar**: Edit `.config/sketchybar/sketchybarrc` to modify the status bar layout and plugins
-2. **Zsh**: Customize `.zshrc` to add personal aliases, functions, or modify the theme
-3. **Colors**: SketchyBar uses a Gruvbox color scheme defined in `.config/sketchybar/colors.sh`
-
-### Adding New Configurations
-
-1. Add your configuration files to the repository
-2. Update `.stow-local-ignore` if you need to exclude certain files
-3. Test with `stow .` to ensure proper symlinking
-
-### Theme Consistency
-
-Most configurations use the Gruvbox color scheme for visual consistency across applications.
-
-## Contributing
-
-Contributions are welcome! If you have improvements or additional configurations:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-config`)
-3. Commit your changes (`git commit -am 'Add amazing configuration'`)
-4. Push to the branch (`git push origin feature/amazing-config`)
-5. Open a Pull Request
-
-Please ensure that:
-- Configurations follow the existing structure
-- New features are documented in the README
-- Color schemes maintain consistency with the Gruvbox theme where applicable
+Contributions are welcome!  
+Fork the repo, create a feature branch, commit your changes, and open a Pull Request.
