@@ -6,10 +6,10 @@ return {
 
 		lint.linters_by_ft = {
 			lua = { "luacheck" },
-			javascript = { "eslint_d", "eslint" },
-			typescript = { "eslint_d", "eslint" },
-			vue = { "eslint_d", "eslint" },
-			astro = { "eslint_d", "eslint" },
+			javascript = { "eslint" },
+			typescript = { "eslint" },
+			vue = { "eslint" },
+			astro = { "eslint" },
 			html = { "htmlhint" },
 			css = { "stylelint" },
 			json = { "jsonlint" },

@@ -53,7 +53,6 @@ return {
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"stylua",
-				"prettierd",
 				"prettier",
 				"xmlformatter",
 				"nginx-config-formatter",
@@ -71,7 +70,6 @@ return {
 				"ktfmt",
 				"beautysh",
 				"luacheck",
-				"eslint_d",
 				"eslint",
 				"htmlhint",
 				"stylelint",
