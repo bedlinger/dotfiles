@@ -54,6 +54,7 @@ return {
 			ensure_installed = {
 				"stylua",
 				"prettierd",
+				"prettier",
 				"xmlformatter",
 				"nginx-config-formatter",
 				"sql-formatter",
@@ -71,6 +72,7 @@ return {
 				"beautysh",
 				"luacheck",
 				"eslint_d",
+				"eslint",
 				"htmlhint",
 				"stylelint",
 				"jsonlint",
