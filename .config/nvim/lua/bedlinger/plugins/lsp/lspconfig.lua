@@ -7,7 +7,6 @@ return {
 
 		config = function()
 			local mason = require("mason")
-
 			local mason_lspconfig = require("mason-lspconfig")
 
 			mason.setup({
@@ -63,9 +62,7 @@ return {
 		},
 		config = function()
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 			local keymap = vim.keymap
-
 			local opts = { noremap = true, silent = true }
 
 			local on_attach = function(client, bufnr)
@@ -140,26 +137,9 @@ return {
 				group = lspGroup,
 			})
 
-			-- Configure LSP servers
 			vim.lsp.config("*", {
 				capabilities = capabilities,
 				on_attach = on_attach,
-			})
-
-			vim.lsp.config("lua_ls", {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = {
-								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-								[vim.fn.stdpath("config") .. "/lua"] = true,
-							},
-						},
-					},
-				},
 			})
 
 			vim.lsp.config("cssls", {
@@ -229,5 +209,15 @@ return {
 				}),
 			})
 		end,
+	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		config = true,
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
 	},
 }
