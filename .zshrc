@@ -3,8 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="gruvbox"
 SOLARIZED_THEME="dark"
 
-zstyle ':omz:update' mode auto      # update automatically without asking
-
+zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 13
 
 HIST_STAMPS="dd.mm.yyy"
@@ -14,8 +13,6 @@ HIST_STAMPS="dd.mm.yyy"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 unalias la
 unalias ll
@@ -33,3 +30,5 @@ fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+fastfetch
