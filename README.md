@@ -9,10 +9,8 @@ My gruvbox themed dotfiles and configurations a modern macOS development environ
 ## Requirements
 
 - [Homebrew](https://brew.sh/) (for installing dependencies)
-- [Git](https://git-scm.com/)  
-  `brew install git`
-- [GNU Stow](https://www.gnu.org/software/stow/)  
-  `brew install stow`
+- [Git](https://git-scm.com/) > `brew install git`
+- [GNU Stow](https://www.gnu.org/software/stow/) > `brew install stow`
 
 ## Installation
 
