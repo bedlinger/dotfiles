@@ -1,6 +1,6 @@
 # macOS dotfiles
 
-My gruvbox themed dotfiles and configurations a modern macOS development environment.
+My gruvbox themed dotfiles and configurations for a modern macOS development environment.
 
 ![main screen wallpaper](./main_screen_wp.png)
 ![main screen](./main_screen.png)
