@@ -1,5 +1,9 @@
 theme = GruvboxDark
-font-family="FiraCode Nerd Font Mono"
-font-feature="-calt, -liga, -dlig"
-font-size = 18
-background-opacity = 0.95
+
+font-family = "FiraCode Nerd Font Mono"
+font-feature = "-calt, -liga, -dlig"
+font-size = 19
+
+background-opacity = 0.90
+
+macos-titlebar-style = hidden
