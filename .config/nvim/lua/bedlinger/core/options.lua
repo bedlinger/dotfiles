@@ -13,6 +13,8 @@ opt.autoindent = true -- copy indent from current line when starting a new one
 
 opt.wrap = false
 
+opt.scrolloff = 1000
+
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- assumes case-sensitive, when mixed case is included
