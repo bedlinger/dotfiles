@@ -16,6 +16,21 @@ return {
 				indent_markers = {
 					enable = true,
 				},
+				special_files = {},
+				icons = {
+					show = {
+						folder_arrow = false,
+					},
+					glyphs = {
+						default = "",
+						folder = {
+							default = "􀆊",
+							open = "􀆈",
+							empty = "􀆊",
+							empty_open = "􀆈",
+						},
+					},
+				},
 			},
 			actions = {
 				open_file = {
