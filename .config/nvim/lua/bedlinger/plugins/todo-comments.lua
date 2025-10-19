@@ -1,18 +1,5 @@
+-- Highlight todo, notes, etc in comments
 return {
-  "folke/todo-comments.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = { "nvim-lua/plenary.nvim" },
-  config = function()
-    local todo_comments = require("todo-comments")
-    local keymap = vim.keymap
-
-    keymap.set("n", "]t", function ()
-      todo_comments.jump_next()
-    end, { desc = "Next todo comment" })
-    keymap.set("n", "[t", function ()
-      todo_comments.jump_prev()
-    end, { desc = "Previous todo comment" })
-
-    todo_comments.setup()
-  end,
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 }
+-- vim: ts=2 sts=2 sw=2 et
