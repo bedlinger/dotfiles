@@ -6,20 +6,23 @@ return {
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = {
+				"astro",
 				"bash",
-				"c",
-				"diff",
-				"html",
+				"css",
+				"dockerfile",
 				"lua",
-				"luadoc",
+				"typescript",
+				"javascript",
+				"vue",
+				"json",
+				"toml",
+				"html",
 				"markdown",
 				"markdown_inline",
-				"query",
-				"vim",
-				"vimdoc",
+				"yaml",
 			},
 			-- Autoinstall languages that are not installed
-			auto_install = true,
+			auto_install = false,
 			highlight = {
 				enable = true,
 				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.

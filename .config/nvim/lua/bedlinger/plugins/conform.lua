@@ -31,6 +31,16 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				markdown = { "markdownlint" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				vue = { "prettier" },
+				yaml = { "prettier" },
+				bash = { "shellharden" },
+				toml = { "tombi" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
