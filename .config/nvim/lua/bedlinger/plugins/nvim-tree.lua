@@ -19,16 +19,7 @@ return {
 				special_files = {},
 				icons = {
 					show = {
-						folder_arrow = false,
-					},
-					glyphs = {
-						default = "",
-						folder = {
-							default = "􀆊",
-							open = "􀆈",
-							empty = "􀆊",
-							empty_open = "􀆈",
-						},
+						folder_arrow = true,
 					},
 				},
 			},
