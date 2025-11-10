@@ -5,7 +5,7 @@ ICON="􀤆"
 CURRENT_STATE=$(cat "$STATE_FILE" 2>/dev/null || echo "IP")
 
 get_ssid() {
-  system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1; gsub(":",""); print;exit}'
+  networksetup -listpreferredwirelessnetworks en0 | sed -n '2p' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'
 }
 
 get_ip() {
