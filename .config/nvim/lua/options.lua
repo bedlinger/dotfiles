@@ -13,6 +13,9 @@ vim.o.shiftwidth = 2 -- 2 spaces for indent width
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.autoindent = true -- copy indent from current line when starting a new one
 
+-- Hide command line when not in use
+vim.o.cmdheight = 0
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
 
