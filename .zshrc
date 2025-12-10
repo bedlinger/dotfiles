@@ -25,8 +25,6 @@ alias la="eza -a"
 alias ll="eza -lah"
 alias vi="nvim"
 
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
-
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
