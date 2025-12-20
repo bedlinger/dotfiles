@@ -21,6 +21,9 @@ return {
 				"markdown_inline",
 				"yaml",
 				"c_sharp",
+				"go",
+				"gomod",
+				"gosum",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = false,

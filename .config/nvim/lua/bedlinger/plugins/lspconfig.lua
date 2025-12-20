@@ -260,6 +260,7 @@ return {
 				css_variables = {},
 				tailwindcss = {},
 				csharp_ls = {},
+				gopls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -285,6 +286,11 @@ return {
 				"prettier",
 				"eslint_d",
 				"ast_grep",
+				"golangci-lint",
+				"gofumpt",
+				"goimports-reviser",
+				"golines",
+				"gomodifytags",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

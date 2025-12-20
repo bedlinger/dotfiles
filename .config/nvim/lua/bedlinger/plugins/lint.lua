@@ -14,6 +14,8 @@ return {
 				bash = { "shellharden" },
 				toml = { "tombi" },
 				yaml = { "yamllint" },
+				c_sharp = { "ast_grep" },
+				go = { "golangci-lint" },
 			}
 
 			-- To allow other plugins to add linters to require('lint').linters_by_ft,

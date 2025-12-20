@@ -41,6 +41,8 @@ return {
 				yaml = { "prettier" },
 				bash = { "shellharden" },
 				toml = { "tombi" },
+				c_sharp = { "ast_grep" },
+				go = { "gofumpt", "goimports-reviser", "golines", "gomodifytags" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
