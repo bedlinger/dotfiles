@@ -25,10 +25,10 @@ alias la="eza -a"
 alias ll="eza -lah"
 alias vi="nvim"
 
+fastfetch
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=($HOME/.docker/completions $fpath)
+fpath=(/Users/bedlinger/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
-
-fastfetch
