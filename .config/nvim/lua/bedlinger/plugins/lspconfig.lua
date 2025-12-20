@@ -259,6 +259,7 @@ return {
 				cssls = {},
 				css_variables = {},
 				tailwindcss = {},
+				csharp_ls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -283,6 +284,7 @@ return {
 				"yamllint",
 				"prettier",
 				"eslint_d",
+				"ast_grep",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

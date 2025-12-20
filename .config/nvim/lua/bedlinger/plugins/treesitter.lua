@@ -20,6 +20,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"yaml",
+				"c_sharp",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = false,
