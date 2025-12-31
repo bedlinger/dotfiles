@@ -16,7 +16,7 @@ return {
 				toml = { "tombi" },
 				yaml = { "yamllint" },
 				c_sharp = { "ast_grep" },
-				go = { "golangci-lint" },
+				go = { "golangci_lint" },
 			}
 
 			lint.linters.golangci_lint = {
