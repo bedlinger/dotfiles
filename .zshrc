@@ -6,11 +6,11 @@ SOLARIZED_THEME="dark"
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 13
 
-HIST_STAMPS="dd.mm.yyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use tailscale dotnet)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,3 +32,4 @@ fpath=(/Users/bedlinger/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
