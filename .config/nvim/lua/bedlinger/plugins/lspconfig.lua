@@ -261,6 +261,7 @@ return {
 				tailwindcss = {},
 				csharp_ls = {},
 				gopls = {},
+				rust_analyzer = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -291,6 +292,7 @@ return {
 				"goimports-reviser",
 				"golines",
 				"gomodifytags",
+				"bacon",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

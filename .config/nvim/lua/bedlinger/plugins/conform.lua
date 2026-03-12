@@ -43,6 +43,7 @@ return {
 				toml = { "tombi" },
 				c_sharp = { "ast_grep" },
 				go = { "gofumpt", "goimports-reviser", "golines", "gomodifytags" },
+				rust = { "bacon" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
