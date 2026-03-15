@@ -12,3 +12,8 @@ end
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
+
+require("lazy").setup({
+	-- Import plugins from `lua/bedlinger/plugins/*.lua`
+	{ import = "bedlinger.plugins" },
+})
