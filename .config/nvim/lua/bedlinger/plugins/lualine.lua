@@ -43,7 +43,7 @@ return {
 							local reg = vim.fn.reg_recording()
 							if reg == "" then
 								return ""
-							end -- not recording
+							end
 							return "recording to " .. reg
 						end,
 					},

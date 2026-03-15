@@ -1,6 +1,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- For more options, you can see `:help option-list`
+vim.opt.termguicolors = true
 
 vim.o.number = true
 vim.o.relativenumber = true

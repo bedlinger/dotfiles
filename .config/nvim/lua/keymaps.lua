@@ -36,6 +36,59 @@ vim.keymap.set("n", "<leader>t-", "<cmd>tabmove-<CR>", { desc = "Move tab to the
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 vim.keymap.set("n", "<leader>tt", "<cmd>tabnew | terminal<CR>", { desc = "Open new terminal tab" })
 
+-- Search
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search Keymaps" })
+			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search Files" })
+			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Select Telescope" })
+			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
+
+			vim.keymap.set("n", "<leader>/", function()
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+				}))
+			end, { desc = "/ Fuzzily search in current buffer" })
+
+			vim.keymap.set("n", "<leader>s/", function()
+				builtin.live_grep({
+					grep_open_files = true,
+					prompt_title = "Live Grep in Open Files",
+				})
+			end, { desc = "Search / in Open Files" })
+
+-- Search
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search Keymaps" })
+			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search Files" })
+			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Select Telescope" })
+			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
+			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
+
+			vim.keymap.set("n", "<leader>/", function()
+				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+				}))
+			end, { desc = "/ Fuzzily search in current buffer" })
+
+			vim.keymap.set("n", "<leader>s/", function()
+				builtin.live_grep({
+					grep_open_files = true,
+					prompt_title = "Live Grep in Open Files",
+				})
+			end, { desc = "Search / in Open Files" })
+
+-- File explorer
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree reveal<CR>", { desc = "Toggle file explorer" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
