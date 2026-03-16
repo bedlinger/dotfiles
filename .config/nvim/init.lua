@@ -1,7 +1,8 @@
--- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
 vim.g.have_nerd_font = true
 
@@ -11,8 +12,8 @@ require("options")
 -- [[ Basic Keymaps ]]
 require("keymaps")
 
+-- [[ Autocommands ]]
+require("autocommands")
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require("lazy-bootstrap")
-
--- [[ Configure and install plugins ]]
-require("lazy-plugins")

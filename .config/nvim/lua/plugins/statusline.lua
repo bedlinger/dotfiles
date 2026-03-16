@@ -8,11 +8,6 @@ return {
 				theme = "auto",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				disabled_filetypes = {
-					statusline = {},
-					winbar = {},
-				},
-				ignore_focus = {},
 				always_divide_middle = true,
 				always_show_tabline = false,
 				globalstatus = false,
@@ -20,7 +15,7 @@ return {
 					statusline = 1000,
 					tabline = 1000,
 					winbar = 1000,
-					refresh_time = 16, -- ~60fps
+					refresh_time = 16,
 					events = {
 						"WinEnter",
 						"BufEnter",
@@ -62,10 +57,6 @@ return {
 				lualine_y = {},
 				lualine_z = {},
 			},
-			tabline = {},
-			winbar = {},
-			inactive_winbar = {},
-			extensions = {},
 		})
 	end,
 }

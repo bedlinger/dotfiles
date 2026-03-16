@@ -3,7 +3,7 @@ return {
 		"folke/which-key.nvim",
 		event = "VimEnter",
 		opts = {
-			delay = 100,
+			delay = 0,
 			icons = {
 				mappings = vim.g.have_nerd_font,
 				keys = vim.g.have_nerd_font and {} or {
@@ -37,11 +37,12 @@ return {
 					F12 = "<F12>",
 				},
 			},
-
 			spec = {
 				{ "<leader>s", group = "Search" },
-        { "<leader>w", group = "Window"},
-        { "<leader>t", group = "Tab"},
+				{ "<leader>e", group = "File explorer" },
+				{ "<leader>l", group = "Git" },
+				{ "<leader>t", group = "Tabs" },
+				{ "<leader>w", group = "Windows" },
 			},
 		},
 	},
