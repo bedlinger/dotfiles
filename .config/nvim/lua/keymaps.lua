@@ -2,7 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 -- Clear search highlight
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader>c", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Quick line navigation
 vim.keymap.set("n", "gh", "^", { silent = true })
