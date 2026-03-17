@@ -5,6 +5,7 @@ return {
 		opts = {
 			placement = "inline",
 			scope = "line",
+			inline_padding_left = 4,
 		},
 	},
 }
