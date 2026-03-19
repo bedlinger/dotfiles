@@ -1,5 +1,4 @@
 {
-    "diagnostics.globals": [
-        "asdf"
-    ]
+  "diagnostics.globals": ["sbar"]
 }
+
