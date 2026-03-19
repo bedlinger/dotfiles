@@ -19,7 +19,7 @@ local bluetooth = sbar.add("item", "bluetooth", {
 		align = "right",
 		background = { border_color = colors.blue },
 	},
-	update_freq = 30,
+	update_freq = 60,
 })
 
 local function toggle_bluetooth_popup()

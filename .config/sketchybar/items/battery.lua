@@ -41,3 +41,10 @@ battery:subscribe("power_source_change", function(_)
 		icon = getBatteryIcon(),
 	})
 end)
+
+battery:subscribe("routine", function(_)
+	battery:set({
+		label = tostring(getBatteryPercentage()) .. "%",
+		icon = getBatteryIcon(),
+	})
+end)
