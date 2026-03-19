@@ -2,7 +2,7 @@ local colors = require("colors")
 local util = require("helpers.util")
 
 local percentage = tonumber(util.execute("pmset -g batt | grep -Eo '\\d+%' | cut -d% -f1"))
-local isCharging = util.execute("pmset -g batt | grep 'AC Power'") ~= ""
+local is_charging = util.execute("pmset -g batt | grep 'AC Power'") ~= ""
 
 local battery_icon = "404"
 if percentage >= 90 then
@@ -17,7 +17,7 @@ else
 	battery_icon = "􀛪"
 end
 
-if isCharging then
+if is_charging then
 	battery_icon = "􀢋"
 end
 
