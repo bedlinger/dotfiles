@@ -1,12 +1,12 @@
 local colors = require("colors")
 
-local function getCurrentDateAndTime()
+local function get_current_date_and_time()
 	return os.date("%a %x - %X")
 end
 
 local clock = sbar.add("item", {
 	position = "right",
-	label = getCurrentDateAndTime(),
+	label = get_current_date_and_time(),
 	icon = "􀧞",
 	background = {
 		color = colors.muted_blue,
@@ -16,6 +16,6 @@ local clock = sbar.add("item", {
 
 clock:subscribe("routine", function(_)
 	clock:set({
-		label = getCurrentDateAndTime(),
+		label = get_current_date_and_time(),
 	})
 end)

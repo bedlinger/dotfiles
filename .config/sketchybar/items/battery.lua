@@ -1,26 +1,26 @@
 local colors = require("colors")
 local util = require("helpers.util")
 
-local function getBatteryPercentage()
+local function get_battery_percentage()
 	return tonumber(util.execute("pmset -g batt | grep -Eo '\\d+%' | cut -d% -f1"))
 end
 
-local function isBatteryCharging()
+local function is_battery_charging()
 	return util.execute("pmset -g batt | grep 'AC Power'") ~= ""
 end
 
 local function getBatteryIcon()
-	if isBatteryCharging() then
+	if is_battery_charging() then
 		return "􀢋"
-	elseif getBatteryPercentage() >= 90 then
+	elseif get_battery_percentage() >= 90 then
 		return "􀛨"
-	elseif getBatteryPercentage() >= 75 then
+	elseif get_battery_percentage() >= 75 then
 		return "􀺸"
-	elseif getBatteryPercentage() >= 50 then
+	elseif get_battery_percentage() >= 50 then
 		return "􀺶"
-	elseif getBatteryPercentage() >= 25 then
+	elseif get_battery_percentage() >= 25 then
 		return "􀛩"
-	elseif getBatteryPercentage() >= 0 then
+	elseif get_battery_percentage() >= 0 then
 		return "􀛪"
 	else
 		return "404"
@@ -29,7 +29,7 @@ end
 
 local battery = sbar.add("item", {
 	position = "right",
-	label = tostring(getBatteryPercentage()) .. "%",
+	label = tostring(get_battery_percentage()) .. "%",
 	icon = getBatteryIcon(),
 	background = { color = colors.muted_yellow },
 	update_freq = 60,
@@ -37,14 +37,14 @@ local battery = sbar.add("item", {
 
 battery:subscribe("power_source_change", function(_)
 	battery:set({
-		label = tostring(getBatteryPercentage()) .. "%",
+		label = tostring(get_battery_percentage()) .. "%",
 		icon = getBatteryIcon(),
 	})
 end)
 
 battery:subscribe("routine", function(_)
 	battery:set({
-		label = tostring(getBatteryPercentage()) .. "%",
+		label = tostring(get_battery_percentage()) .. "%",
 		icon = getBatteryIcon(),
 	})
 end)
