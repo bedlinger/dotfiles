@@ -1,4 +1,4 @@
-function execute(cmd, raw)
+local function execute(cmd, raw)
 	local f = assert(io.popen(cmd, "r"))
 	local s = assert(f:read("*a"))
 	f:close()
