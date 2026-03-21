@@ -1,4 +1,5 @@
 {
-  "diagnostics.globals": ["sbar"]
+  "diagnostics.globals": ["sbar"],
+    "runtime.version": "Lua 5.5"
 }
 
