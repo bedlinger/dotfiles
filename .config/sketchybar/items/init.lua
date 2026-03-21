@@ -1,8 +1,11 @@
--- right side
+-- right items
 require("items.aerospace_mode")
 require("items.front_app")
 
--- left side
+-- center items
+require("items.spotify")
+
+-- left items
 require("items.bluetooth")
 require("items.clock")
 require("items.battery")
