@@ -32,7 +32,7 @@ local battery = sbar.add("item", {
 	label = tostring(get_battery_percentage()) .. "%",
 	icon = getBatteryIcon(),
 	background = { color = colors.muted_yellow },
-	update_freq = 60,
+	update_freq = 30,
 })
 
 battery:subscribe("power_source_change", function(_)
