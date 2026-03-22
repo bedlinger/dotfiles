@@ -50,10 +50,18 @@ local spotify = sbar.add("item", {
 	update_freq = 10,
 })
 
+print(get_spotify_current_artist() ~= "")
+
 local function set_spotify_state()
+	local spotify_label = is_spotify_running() and get_spotify_current_track()
+
+	if tostring(get_spotify_current_artist()) ~= "" then
+		spotify_label = spotify_label .. " - " .. get_spotify_current_artist()
+	end
+
 	spotify:set({
 		drawing = is_spotify_running(),
-		label = is_spotify_running() and get_spotify_current_track() .. " - " .. get_spotify_current_artist(),
+		label = spotify_label,
 		icon = is_spotify_running() and is_spotify_playing() and "􀊖" or "􀊘",
 	})
 end
