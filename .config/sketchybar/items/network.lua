@@ -49,12 +49,20 @@ local function is_connected_to_network()
 	return tostring(get_ip_address()) ~= ""
 end
 
+local function get_current_label()
+	return not is_connected_to_network() and "No Connection"
+		or get_current_state() == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
+		or get_ssid()
+end
+
+local function get_current_icon()
+	return not is_connected_to_network() and icons.network.not_connected or icons.network.connected
+end
+
 local network = sbar.add("item", {
 	position = "right",
-	label = not is_connected_to_network() and "No Connection"
-		or get_current_state() == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
-		or get_ssid(),
-	icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
+	label = get_current_label(),
+	icon = get_current_icon(),
 	background = {
 		color = colors.muted_aqua,
 	},
@@ -68,17 +76,14 @@ network:subscribe("mouse.clicked", function(_)
 	write_to_state_file(new_state)
 
 	network:set({
-		label = not is_connected_to_network() and "No Connection"
-			or new_state == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
-			or get_ssid(),
-		icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
+		label = get_current_label(),
+		icon = get_current_icon(),
 	})
 end)
+
 network:subscribe("routine", function(_)
 	network:set({
-		label = not is_connected_to_network() and "No Connection"
-			or get_current_state() == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
-			or get_ssid(),
-		icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
+		label = get_current_label(),
+		icon = get_current_icon(),
 	})
 end)

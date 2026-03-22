@@ -2,15 +2,20 @@ local colors = require("colors")
 local icons = require("icons")
 local util = require("helpers.util")
 
-local is_bluetooth_device_connected = util.execute("blueutil --connected") ~= ""
-local bluetooth_icon = is_bluetooth_device_connected and icons.bluetooth.connected or icons.bluetooth.not_connected
+local function is_bluetooth_device_connected()
+	return util.execute("blueutil --connected") ~= ""
+end
+
+local function get_bluetooth_icon()
+	return is_bluetooth_device_connected() and icons.bluetooth.connected or icons.bluetooth.not_connected
+end
 
 local bluetooth = sbar.add("item", "bluetooth", {
 	position = "right",
 	display = "active",
 	label = { drawing = false },
 	icon = {
-		string = bluetooth_icon,
+		string = get_bluetooth_icon(),
 		padding_right = 5,
 		padding_left = 5,
 	},
@@ -29,15 +34,15 @@ local function toggle_bluetooth_popup()
 		"system_profiler SPBluetoothDataType | grep '^        .*:$' | sed 's/^[[:space:]]*//;s/:$//'",
 		true
 	)
-	local connected_raw = util.execute(
+	local connected_devices_raw = util.execute(
 		"system_profiler SPBluetoothDataType | awk '/Connected:/{f=1} /Not Connected:|Devices \\(/{f=0} f && /^        .*:$/ {gsub(/^[ \\t]+|:$/, \"\"); print}'",
 		true
 	)
 
-	local connected_map = {}
-	for device in connected_raw:gmatch("[^\n]+") do
+	local connected_devices = {}
+	for device in connected_devices_raw:gmatch("[^\n]+") do
 		if device:match("%S") then
-			connected_map[device] = true
+			connected_devices[device] = true
 		end
 	end
 
@@ -45,10 +50,10 @@ local function toggle_bluetooth_popup()
 	for device in all_devices_raw:gmatch("[^\n]+") do
 		if device:match("%S") then
 			local item_name = "bluetooth.device." .. counter
-			local is_connected = connected_map[device] == true
-			local label_color = is_connected and colors.white or colors.gray
+			local is_device_connected = connected_devices[device] == true
+			local label_color = is_device_connected and colors.white or colors.gray
 
-			local click_cmd = is_connected
+			local click_cmd = is_device_connected
 					and string.format(
 						'blueutil --disconnect "%s"; sketchybar --set bluetooth popup.drawing=off',
 						device
@@ -80,8 +85,7 @@ bluetooth:subscribe("mouse.exited.global", function(_)
 end)
 
 bluetooth:subscribe("routine", function(_)
-	local connected = util.execute("blueutil --connected") ~= ""
 	bluetooth:set({
-		icon = { string = connected and icons.bluetooth.connected or icons.bluetooth.not_connected },
+		icon = get_bluetooth_icon(),
 	})
 end)
