@@ -1,4 +1,5 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 sbar.add("event", "aerospace_workspace_change")
@@ -24,7 +25,8 @@ local function add_workspace_items_to_display(display, workspaces)
 
 			workspace_monitor_center:set({
 				drawing = is_occupied or is_focused,
-				icon = is_occupied and "􀕴" or is_focused and not is_occupied and "􀂒",
+				icon = is_occupied and icons.workspace.occupied
+					or is_focused and not is_occupied and icons.workspace.focused,
 				background = {
 					color = is_occupied and not is_focused and colors.muted_orange
 						or is_focused and colors.bright_orange,

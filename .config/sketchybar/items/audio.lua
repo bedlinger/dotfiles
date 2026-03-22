@@ -1,4 +1,5 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 local audio = sbar.add("item", "audio", {
@@ -64,14 +65,14 @@ audio:subscribe("mouse.exited.global", function(_)
 end)
 audio:subscribe("volume_change", function(env)
 	local volume = tonumber(env.INFO)
-	local volume_icon = "􀊣"
+	local volume_icon = icons.volume.muted
 
 	if volume >= 90 then
-		volume_icon = "􀊩"
+		volume_icon = icons.volume.loud
 	elseif volume >= 50 then
-		volume_icon = "􀊧"
+		volume_icon = icons.volume.mid
 	elseif volume > 0 then
-		volume_icon = "􀊥"
+		volume_icon = icons.volume.quiet
 	end
 
 	audio:set({

@@ -1,4 +1,5 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 local NETWORK_STATE_FILE <const> = "/tmp/sketchybar_network_toggle_state"
@@ -53,7 +54,7 @@ local network = sbar.add("item", {
 	label = not is_connected_to_network() and "No Connection"
 		or get_current_state() == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
 		or get_ssid(),
-	icon = not is_connected_to_network() and "􁣡" or "􀤆",
+	icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
 	background = {
 		color = colors.muted_aqua,
 	},
@@ -70,7 +71,7 @@ network:subscribe("mouse.clicked", function(_)
 		label = not is_connected_to_network() and "No Connection"
 			or new_state == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
 			or get_ssid(),
-		icon = not is_connected_to_network() and "􁣡" or "􀤆",
+		icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
 	})
 end)
 network:subscribe("routine", function(_)
@@ -78,6 +79,6 @@ network:subscribe("routine", function(_)
 		label = not is_connected_to_network() and "No Connection"
 			or get_current_state() == NETWORK_STATE_VALUES.IP_ADDRESS and get_ip_address()
 			or get_ssid(),
-		icon = not is_connected_to_network() and "􁣡" or "􀤆",
+		icon = not is_connected_to_network() and icons.network.not_connected or icons.network.connected,
 	})
 end)

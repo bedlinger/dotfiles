@@ -1,8 +1,9 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 local is_bluetooth_device_connected = util.execute("blueutil --connected") ~= ""
-local bluetooth_icon = is_bluetooth_device_connected and "􀉤" or "􂮿"
+local bluetooth_icon = is_bluetooth_device_connected and icons.bluetooth.connected or icons.bluetooth.not_connected
 
 local bluetooth = sbar.add("item", "bluetooth", {
 	position = "right",
@@ -81,6 +82,6 @@ end)
 bluetooth:subscribe("routine", function(_)
 	local connected = util.execute("blueutil --connected") ~= ""
 	bluetooth:set({
-		icon = { string = connected and "􀉤" or "􂮿" },
+		icon = { string = connected and icons.bluetooth.connected or icons.bluetooth.not_connected },
 	})
 end)

@@ -1,4 +1,5 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 local function get_battery_percentage()
@@ -11,19 +12,19 @@ end
 
 local function get_battery_icon()
 	if is_battery_charging() then
-		return "􀢋"
+		return icons.battery.charging
 	elseif get_battery_percentage() >= 90 then
-		return "􀛨"
+		return icons.battery.full
 	elseif get_battery_percentage() >= 75 then
-		return "􀺸"
+		return icons.battery.three_quarters
 	elseif get_battery_percentage() >= 50 then
-		return "􀺶"
+		return icons.battery.half
 	elseif get_battery_percentage() >= 25 then
-		return "􀛩"
+		return icons.battery.one_quarter
 	elseif get_battery_percentage() >= 0 then
-		return "􀛪"
+		return icons.battery.empty
 	else
-		return "404"
+		return icons.error
 	end
 end
 

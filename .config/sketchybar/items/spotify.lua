@@ -1,4 +1,5 @@
 local colors = require("colors")
+local icons = require("icons")
 local util = require("helpers.util")
 
 local function is_spotify_running()
@@ -60,7 +61,7 @@ local function set_spotify_state()
 	spotify:set({
 		drawing = util.get_display_count() > 1 and is_spotify_running(),
 		label = spotify_label,
-		icon = is_spotify_running() and is_spotify_playing() and "􀊖" or "􀊘",
+		icon = is_spotify_running() and is_spotify_playing() and icons.spotify.playing or icons.spotify.paused,
 	})
 end
 
