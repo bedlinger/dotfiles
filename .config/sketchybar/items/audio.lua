@@ -63,6 +63,7 @@ end)
 audio:subscribe("mouse.exited.global", function(_)
 	audio:set({ popup = { drawing = false } })
 end)
+
 audio:subscribe("volume_change", function(env)
 	local volume = tonumber(env.INFO)
 	local volume_icon = icons.volume.muted
