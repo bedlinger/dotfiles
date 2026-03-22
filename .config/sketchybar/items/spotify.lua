@@ -58,7 +58,7 @@ local function set_spotify_state()
 	end
 
 	spotify:set({
-		drawing = is_spotify_running(),
+		drawing = util.get_display_count() > 1 and is_spotify_running(),
 		label = spotify_label,
 		icon = is_spotify_running() and is_spotify_playing() and "􀊖" or "􀊘",
 	})
