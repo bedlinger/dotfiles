@@ -1,5 +1,6 @@
 -- right items
 require("items.aerospace_mode")
+require("items.aerospace_workspaces")
 require("items.front_app")
 
 -- center items
