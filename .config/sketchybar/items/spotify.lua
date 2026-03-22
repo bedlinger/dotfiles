@@ -50,12 +50,10 @@ local spotify = sbar.add("item", {
 	update_freq = 10,
 })
 
-print(get_spotify_current_artist() ~= "")
-
 local function set_spotify_state()
 	local spotify_label = is_spotify_running() and get_spotify_current_track()
 
-	if tostring(get_spotify_current_artist()) ~= "" then
+	if is_spotify_running() and tostring(get_spotify_current_artist()) ~= "" then
 		spotify_label = spotify_label .. " - " .. get_spotify_current_artist()
 	end
 
@@ -66,12 +64,10 @@ local function set_spotify_state()
 	})
 end
 
-set_spotify_state()
-
 sbar.add("event", "spotify_state_change", "com.spotify.client.PlaybackStateChanged")
 
 spotify:subscribe("spotify_state_change", function(_)
-	util.execute("sleep 0.5")
+	util.execute("sleep 1")
 	set_spotify_state()
 end)
 
@@ -80,3 +76,5 @@ spotify:subscribe("routine", set_spotify_state)
 spotify:subscribe("mouse.clicked", function(_)
 	toggle_spotify_play_state()
 end)
+
+set_spotify_state()
