@@ -1,4 +1,3 @@
-local sbar = require("sketchybar")
 local colors = require("colors")
 local util = require("helpers.util")
 
