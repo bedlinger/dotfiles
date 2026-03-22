@@ -11,4 +11,8 @@ local function execute(cmd, raw)
 	return s
 end
 
-return { execute = execute }
+local function get_display_count()
+	return execute("sketchybar --query displays | jq 'length'")
+end
+
+return { execute = execute, get_display_count = get_display_count() }
