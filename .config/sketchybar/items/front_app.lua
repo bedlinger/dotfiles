@@ -21,6 +21,10 @@ front_app:subscribe("front_app_switched", function(env)
 	front_app_name = env.INFO
 	front_app_icon = app_icons[front_app_name]
 
+	if front_app_icon == nil then
+		front_app_icon = app_icons["Default"]
+	end
+
 	front_app:set({
 		label = front_app_name,
 		icon = front_app_icon,
