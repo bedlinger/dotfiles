@@ -9,7 +9,7 @@ local function is_battery_charging()
 	return util.execute("pmset -g batt | grep 'AC Power'") ~= ""
 end
 
-local function getBatteryIcon()
+local function get_battery_icon()
 	if is_battery_charging() then
 		return "􀢋"
 	elseif get_battery_percentage() >= 90 then
@@ -30,7 +30,7 @@ end
 local battery = sbar.add("item", {
 	position = "right",
 	label = tostring(get_battery_percentage()) .. "%",
-	icon = getBatteryIcon(),
+	icon = get_battery_icon(),
 	background = { color = colors.muted_yellow },
 	update_freq = 30,
 })
@@ -38,13 +38,13 @@ local battery = sbar.add("item", {
 battery:subscribe("power_source_change", function(_)
 	battery:set({
 		label = tostring(get_battery_percentage()) .. "%",
-		icon = getBatteryIcon(),
+		icon = get_battery_icon(),
 	})
 end)
 
 battery:subscribe("routine", function(_)
 	battery:set({
 		label = tostring(get_battery_percentage()) .. "%",
-		icon = getBatteryIcon(),
+		icon = get_battery_icon(),
 	})
 end)
