@@ -12,7 +12,7 @@ local function execute(cmd, raw)
 end
 
 local function get_display_count()
-	return execute("sketchybar --query displays | jq 'length'")
+	return tonumber(execute("sketchybar --query displays | jq 'length'"))
 end
 
-return { execute = execute, get_display_count = get_display_count() }
+return { execute = execute, get_display_count = get_display_count }
