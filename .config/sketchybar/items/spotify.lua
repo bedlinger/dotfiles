@@ -67,7 +67,7 @@ end
 sbar.add("event", "spotify_state_change", "com.spotify.client.PlaybackStateChanged")
 
 spotify:subscribe("spotify_state_change", function(_)
-	util.execute("sleep 1")
+	util.execute("sleep 0.5")
 	set_spotify_state()
 end)
 
