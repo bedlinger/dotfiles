@@ -3,7 +3,7 @@ local icons = require("icons")
 local util = require("helpers.util")
 
 local function is_bluetooth_device_connected()
-	return util.execute("blueutil --connected") ~= ""
+	return tostring(util.execute("blueutil --connected")):find("connected") ~= nil
 end
 
 local function get_bluetooth_icon()
