@@ -8,7 +8,7 @@ local function add_workspace_items_to_display(display, workspaces)
 	for _, wid in ipairs(workspaces) do
 		local click_cmd = "aerospace workspace " .. wid
 
-		local workspace_monitor_center = sbar.add("item", "workspace." .. wid, {
+		local workspace = sbar.add("item", "workspace." .. wid, {
 			position = "left",
 			display = display,
 			label = wid,
@@ -19,11 +19,11 @@ local function add_workspace_items_to_display(display, workspaces)
 			updates = true,
 		})
 
-		workspace_monitor_center:subscribe("aerospace_workspace_change", function(env)
+		workspace:subscribe("aerospace_workspace_change", function(env)
 			local is_focused = wid == env.AEROSPACE_FOCUSED_WORKSPACE
 			local is_occupied = util.execute('aerospace list-windows --workspace "' .. wid .. '"') ~= ""
 
-			workspace_monitor_center:set({
+			workspace:set({
 				drawing = is_occupied or is_focused,
 				icon = is_occupied and icons.workspace.occupied
 					or is_focused and not is_occupied and icons.workspace.focused,
@@ -56,3 +56,7 @@ else
 		},
 	})
 end
+
+sbar.trigger("aerospace_workspace_change", {
+	AEROSPACE_FOCUSED_WORKSPACE = util.execute("aerospace list-workspaces --focused"),
+})
