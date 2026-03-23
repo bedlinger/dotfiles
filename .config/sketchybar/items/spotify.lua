@@ -48,7 +48,7 @@ local spotify = sbar.add("item", {
 	background = {
 		color = colors.bg0,
 	},
-	update_freq = 10,
+	updates = true,
 })
 
 local function set_spotify_state()
@@ -72,7 +72,7 @@ spotify:subscribe("spotify_state_change", function(_)
 	set_spotify_state()
 end)
 
-spotify:subscribe("routine", set_spotify_state)
+-- spotify:subscribe("routine", set_spotify_state)
 
 spotify:subscribe("mouse.clicked", function(_)
 	toggle_spotify_play_state()
