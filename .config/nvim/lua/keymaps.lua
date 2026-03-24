@@ -76,11 +76,6 @@ end, { desc = "Search buffers" })
 
 -- File explorer
 vim.keymap.set("n", "<leader>ee", "<cmd>lua MiniFiles.open()<CR>", { desc = "Open file explorer" })
-vim.keymap.set("n", "<leader>es", function()
-	require("nvim-tree.api").tree.toggle({
-		focus = false,
-	})
-end, { desc = "Open file tree" })
 
 -- Diagnostic keymap
 vim.keymap.set("n", "gn", function()
