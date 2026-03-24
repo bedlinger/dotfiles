@@ -44,7 +44,7 @@ local function parse_machine(line)
 end
 
 local function get_tailscale_status()
-	local output = util.execute("tailscale status", true)
+	local output = util.execute("/usr/local/bin/tailscale status", true)
 	local machines = {}
 	for line in output:gmatch("[^\n]+") do
 		if line:match("%S") then
@@ -58,15 +58,15 @@ local function get_tailscale_status()
 end
 
 local function is_tailscale_connected()
-	return util.execute("tailscale status", true):find("stopped") == nil
+	return util.execute("/usr/local/bin/tailscale status", true):find("stopped") == nil
 end
 
 local function disconnect_from_tailscale()
-	util.execute("tailscale down")
+	util.execute("/usr/local/bin/tailscale down")
 end
 
 local function connect_to_tailscale()
-	util.execute("tailscale up")
+	util.execute("/usr/local/bin/tailscale up")
 end
 
 local tailscale = sbar.add("item", "tailscale", {
