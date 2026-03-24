@@ -57,7 +57,7 @@ return {
 				"bashls",
 				"csharp_ls",
 				"gopls",
-				"java_language_server",
+				"jdtls",
 				"kotlin_language_server",
 				"pylsp",
 				"html",
