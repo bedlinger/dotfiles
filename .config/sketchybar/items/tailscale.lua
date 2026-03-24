@@ -79,7 +79,7 @@ local tailscale = sbar.add("item", "tailscale", {
 		padding_left = 6,
 		font = "sketchybar-app-font:Regular:16.0",
 	},
-	update_freq = 10,
+	update_freq = 5,
 })
 
 local function set_tailscale_state()
