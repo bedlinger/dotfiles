@@ -1,14 +1,14 @@
 # after-login-command = []
 
 after-startup-command = [
-  "exec-and-forget borders",
-  "exec-and-forget sketchybar"
+  # "exec-and-forget borders",
+  # "exec-and-forget sketchybar"
 ]
 
 exec-on-workspace-change = [
   "/bin/bash",
   "-c",
-  "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+  "sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
 ]
 
 # Start AeroSpace at login
@@ -136,11 +136,11 @@ cmd-shift-e = "workspace-back-and-forth"
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 cmd-shift-s = [
   "mode service",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=service"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=service"'
 ]
 cmd-shift-space = [
   "mode application",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=application"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=application"'
 ]
 
 # 'service' binding mode declaration.
@@ -149,49 +149,49 @@ cmd-shift-space = [
 esc = [
   "reload-config",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 r = [
   "flatten-workspace-tree",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 s = [
   "exec-and-forget sketchybar --reload",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 f = [
   "layout floating tiling",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 
 # 'application' binding mode declration
 [mode.application.binding]
 esc = [
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 enter = [
   "exec-and-forget open /Applications/Ghostty.app",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 y = [
   "exec-and-forget open /Applications/Zen.app",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 d = [
   "exec-and-forget open ~/Downloads",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 s = [
   "exec-and-forget open /Applications/Spotify.app",
   "mode main",
-  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change CURRENT_MODE=main"'
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
 
 [[on-window-detected]]
