@@ -31,4 +31,5 @@ return {
 		paused = "􀊘",
 		playing = "􀊖",
 	},
+	tailscale = require("helpers.app_icons")["Tailscale"],
 }
