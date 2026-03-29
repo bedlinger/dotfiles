@@ -92,6 +92,8 @@ outer.right = 5
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 cmd-shift-comma = "layout tiles horizontal vertical"
 
+cmd-shift-tab = "workspace-back-and-forth"
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-h = "focus left"
 cmd-j = "focus down"
