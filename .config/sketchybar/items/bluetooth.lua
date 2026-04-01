@@ -67,7 +67,7 @@ local function toggle_bluetooth_popup()
 			local is_device_connected = connected_devices[device] == true
 			local label_color = is_device_connected and colors.white or colors.gray
 
-			local click_cmd = is_device_connected
+			local toogle_device_connection = is_device_connected
 					and string.format(
 						'blueutil --disconnect "%s"; sketchybar --set bluetooth popup.drawing=off',
 						device
@@ -80,7 +80,7 @@ local function toggle_bluetooth_popup()
 					string = device,
 					color = label_color,
 				},
-				click_script = click_cmd,
+				click_script = toogle_device_connection,
 			})
 
 			counter = counter + 1

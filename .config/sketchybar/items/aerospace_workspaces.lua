@@ -6,7 +6,7 @@ sbar.add("event", "aerospace_workspace_change")
 
 local function add_workspace_items_to_display(display, workspaces)
 	for _, wid in ipairs(workspaces) do
-		local click_cmd = "aerospace workspace " .. wid
+		local switch_to_workspace = "aerospace workspace " .. wid
 
 		local workspace = sbar.add("item", "workspace." .. wid, {
 			position = "left",
@@ -15,7 +15,7 @@ local function add_workspace_items_to_display(display, workspaces)
 			background = {
 				height = 28,
 			},
-			click_script = click_cmd,
+			click_script = switch_to_workspace,
 			updates = true,
 		})
 

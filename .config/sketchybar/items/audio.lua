@@ -32,7 +32,7 @@ local function toggle_audio_popup()
 			local is_current = device == current_device
 			local label_color = is_current and colors.white or colors.gray
 
-			local click_cmd = string.format(
+			local switch_audio_source = string.format(
 				"SwitchAudioSource -s \"%s\" && sketchybar --set '/audio.device\\..*/' label.color=%s --set %s label.color=%s --set audio popup.drawing=off",
 				device,
 				colors.gray,
@@ -46,7 +46,7 @@ local function toggle_audio_popup()
 					string = device,
 					color = label_color,
 				},
-				click_script = click_cmd,
+				click_script = switch_audio_source,
 			})
 
 			counter = counter + 1
