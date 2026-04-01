@@ -10,7 +10,7 @@ HIST_STAMPS="dd/mm/yyyy"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use tailscale dotnet)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use tailscale dotnet brew)
 
 source $ZSH/oh-my-zsh.sh
 
