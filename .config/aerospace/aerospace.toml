@@ -190,6 +190,11 @@ d = [
   "mode main",
   'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
 ]
+f = [
+  "exec-and-forget open ~/",
+  "mode main",
+  'exec-and-forget /bin/bash -c "sketchybar --trigger aerospace_mode_change AEROSPACE_NEW_MODE=main"'
+]
 s = [
   "exec-and-forget open /Applications/Spotify.app",
   "mode main",
