@@ -6,4 +6,6 @@ sbar.bar({
 	padding_right = 10,
 	padding_left = 10,
 	y_offset = 2,
+	notch_display_height = 27,
+	notch_offset = 2,
 })
