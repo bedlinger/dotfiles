@@ -11,7 +11,7 @@ return {
 				default_tab = "<C-t>",
 				default_shift_tab = "<C-d>",
 				enable_backwards = true,
-				completion = true,
+				completion = false,
 				tabouts = {
 					{ open = "'", close = "'" },
 					{ open = '"', close = '"' },
@@ -26,9 +26,17 @@ return {
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
+			"L3MON4D3/LuaSnip",
+			"saghen/blink.cmp",
 		},
 		opt = true,
 		event = "InsertCharPre",
 		priority = 1000,
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		keys = function()
+			return {}
+		end,
 	},
 }
